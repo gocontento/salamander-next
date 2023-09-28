@@ -1,5 +1,17 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## TODO
+- [ ] SEO
+- [ ] Make sure home can be fetched by ID
+- [ ] Info page layout
+- [ ] Blog post page
+- [ ] Blog index page
+- [ ] Blog category index page
+- [ ] Pagination in index pages with new limit / offset pagination
+- [ ] Refactor API calls to use new methods as they come available
+- [ ] Deal with hero optional blocks
+- [ ] Refactor data mapping in components to a middleware
+
 ## Getting Started
 
 First, run the development server:
