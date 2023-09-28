@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import {useState} from "react";
 
 export default function Header() {
-    return (
+	const [navOpen, setNavOpen] = useState(false);
+
+	function toggleNav() {
+		setNavOpen(!navOpen);
+	}
+
+	return (
         <header>
             <nav className="bg-orange">
 				<div className=" mx-auto px-7 lg:px-12 lg:py-3">
@@ -22,14 +31,14 @@ export default function Header() {
 								<Link href="/#pricing" className="block text-sm px-4 py-4 text-grey hover:text-white transition duration-300">Pricing</Link>
 								<Link href="/developers" className="block text-sm px-4 py-4 text-grey hover:text-white transition duration-300">Developers</Link>
 								<Link href="/blog" className="block text-sm px-4 py-4 text-grey hover:text-white transition duration-300">Blog</Link>
-								<Link href="/#get-started" className="block text-sm px-4 py-4 text-orange hover:bg-[#FF5E6B] hover:text-white font-bold bg-black px-9 py-2 rounded-full">Get Started</Link>
+								<Link href="/#get-started" className="block text-sm px-9 py-4 text-orange hover:bg-[#FF5E6B] hover:text-white font-bold bg-black rounded-full">Get Started</Link>
 							</div>
 						</div>
 
 						{/* Mobile nav button */}
 						<div className="lg:hidden flex items-center">
 							{/*@click.prevent="mobileNavOpen=!mobileNavOpen"*/}
-							<button className="outline-none mobile-menu-button" >
+							<button className="outline-none mobile-menu-button" onClick={toggleNav}>
 								<svg className="w-6 h-6 text-black"
 									fill="none"
 									strokeLinecap="round"
@@ -44,14 +53,14 @@ export default function Header() {
 						</div>
 					</div>
 				</div>
-				{/* TODO Mobile menu */}
-				{/*<div :class="toggleMainNav" class=" z-50 absolute w-full bg-black px-7 py-12 text-center items-center justify-center">*/}
-				{/*		<NuxtLink :to="{ name: 'index', hash:`#features`}" class="block text-sm px-2 py-4 text-white transition duration-300">Features</NuxtLink>*/}
-				{/*		<NuxtLink :to="{ name: 'index', hash:`#pricing`}" class="block text-sm px-2 py-4 text-white transition duration-300">Pricing</NuxtLink>*/}
-				{/*		<NuxtLink to="/developers" class="block text-sm px-2 py-4 text-white transition duration-300">Developers</NuxtLink>*/}
-				{/*		<NuxtLink to="/blog" class="block text-sm px-2 py-4 text-white transition duration-300">Blog</NuxtLink>*/}
-				{/*		<NuxtLink :to="{ name: 'index', hash:`#get-started`}" class="block text-sm px-2 py-4 my-4 text-orange text-center border border-orange hover:bg-[#FF5E6B] hover:text-white hover:border-[#FF5E6B] px-4 py-2 rounded-full transition duration-300">Get Started</NuxtLink>*/}
-				{/*</div>*/}
+				{/* Mobile menu */}
+				<div className={`${navOpen ? 'flex-col' : 'hidden'} z-50 absolute w-full bg-black px-7 py-12 text-center items-center justify-center`}>
+						<Link href="/#features" className="block text-sm px-2 py-4 text-white transition duration-300">Features</Link>
+						<Link href="/#pricing" className="block text-sm px-2 py-4 text-white transition duration-300">Pricing</Link>
+						<Link href="/developers" className="block text-sm px-2 py-4 text-white transition duration-300">Developers</Link>
+						<Link href="/blog" className="block text-sm px-2 py-4 text-white transition duration-300">Blog</Link>
+						<Link href="/#get-started" className="block text-sm px-2 py-4 my-4 text-orange text-center border border-orange hover:bg-[#FF5E6B] hover:text-white hover:border-[#FF5E6B] px-4 py-2 rounded-full transition duration-300">Get Started</Link>
+				</div>
 			</nav>
         </header>
     )
