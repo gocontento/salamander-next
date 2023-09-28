@@ -1,4 +1,4 @@
-import {AssetApiData, BlockApiData, FieldApiData} from "@gocontento/client/lib/api-types";
+import { AssetApiData, BlockApiData } from "@gocontento/client/lib/api-types";
 import Markdown from 'react-markdown';
 import Image from "@/app/components/image";
 
