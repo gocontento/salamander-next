@@ -21,7 +21,7 @@ export default async function Home() {
     const homePageContent = response.content[0] as ContentApiData;
 
     return (
-        <>
+        <div className="pb-12 md:pb-32">
             <PreviewBridge draftMode={isEnabled} />
 
             {homePageContent.fields.content.blocks.map((block: BlockApiData) => {
@@ -29,6 +29,6 @@ export default async function Home() {
                     <BlockMatcher key={`${block.name}-${block.sort}`} block={block} />
                 )
             })}
-        </>
+        </div>
     )
 }

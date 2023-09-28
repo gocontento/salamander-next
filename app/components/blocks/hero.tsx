@@ -9,7 +9,7 @@ export default function Hero({ block }: { block: BlockApiData }) {
     return (
         <section className="px-9 pt-9 pb-12 flex flex-col lg:flex-row item-center justify-between md:gap-20 md:px-32">
             <div className="flex flex-col justify-center lg:w-[750px]">
-                <h2 className="text-xl leading-tight pb-4 md:text-xxl font-bold heading-with-white-accents">
+                <h2 className="text-xl leading-tight pb-4 md:text-xxl font-bold [&>strong]:text-white [&>strong]:[font-weight:inherit]">
                     <Markdown disallowedElements={["p"]} unwrapDisallowed={true}>{block.fields.hero_heading.text}</Markdown>
                 </h2>
 
