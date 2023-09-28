@@ -15,6 +15,7 @@ export default function Hero({ block }: { block: BlockApiData }) {
 
                 <p className="text-xs text-grey md:text-sm lg:w-3/4">{block.fields.hero_body.text}</p>
 
+                {/* TODO: at the moment this can accept more than one block, of two different types and we’re only handling the featured_on one */}
                 {optionalBlock && (
                     <div className="flex flex-col justify-start mt-12 lg:mt-28 mb-5">
                         <h4 className="tracking-wider uppercase text-grey text-opacity-30 font-[500]">
