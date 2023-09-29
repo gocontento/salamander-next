@@ -12,7 +12,6 @@ type Props = {
     };
 };
 
-
 export default async function GeneralPage({ params }: Props) {
 
     const { isEnabled } = draftMode();
