@@ -31,7 +31,7 @@ export default function Header() {
 								<Link href="/#pricing" className="block text-sm px-4 py-4 text-grey hover:text-white transition duration-300">Pricing</Link>
 								<Link href="/developers" className="block text-sm px-4 py-4 text-grey hover:text-white transition duration-300">Developers</Link>
 								<Link href="/blog" className="block text-sm px-4 py-4 text-grey hover:text-white transition duration-300">Blog</Link>
-								<Link href="/#get-started" className="block text-sm px-9 py-4 text-orange hover:bg-[#FF5E6B] hover:text-white font-bold bg-black rounded-full">Get Started</Link>
+								<Link href="/#get-started" className="block text-sm px-9 py-4 text-orange hover:bg-pink hover:text-white font-bold bg-black rounded-full">Get Started</Link>
 							</div>
 						</div>
 
@@ -59,7 +59,7 @@ export default function Header() {
 						<Link href="/#pricing" className="block text-sm px-2 py-4 text-white transition duration-300">Pricing</Link>
 						<Link href="/developers" className="block text-sm px-2 py-4 text-white transition duration-300">Developers</Link>
 						<Link href="/blog" className="block text-sm px-2 py-4 text-white transition duration-300">Blog</Link>
-						<Link href="/#get-started" className="block text-sm px-2 py-4 my-4 text-orange text-center border border-orange hover:bg-[#FF5E6B] hover:text-white hover:border-[#FF5E6B] px-4 py-2 rounded-full transition duration-300">Get Started</Link>
+						<Link href="/#get-started" className="block text-sm px-2 py-4 my-4 text-orange text-center border border-orange hover:bg-pink hover:text-white hover:border-pink px-4 py-2 rounded-full transition duration-300">Get Started</Link>
 				</div>
 			</nav>
         </header>
