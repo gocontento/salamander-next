@@ -12,6 +12,7 @@ type Props = {
     };
 };
 
+
 export default async function GeneralPage({ params }: Props) {
 
     const { isEnabled } = draftMode();
@@ -30,6 +31,7 @@ export default async function GeneralPage({ params }: Props) {
         <div className="pb-12 md:pb-32">
             <PreviewBridge draftMode={isEnabled} />
 
+            {/* TODO: handle info page here as well, probably break out the following stuff to a component or do a simple if statement */}
             {homePageContent.fields.content.blocks.map((block: BlockApiData) => {
                 return (
                     <BlockMatcher key={`${block.name}-${block.sort}`} block={block} />
