@@ -3,7 +3,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## TODO
 - [ ] SEO
 - [ ] Make sure home can be fetched by ID
-- [ ] Info page layout
+- [x] Info page layout
 - [ ] Blog post page
 - [ ] Blog index page
 - [ ] Blog category index page
