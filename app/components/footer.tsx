@@ -5,9 +5,9 @@ export default function Footer() {
         <footer className="bg-charcoal">
             <div className="hidden md:flex md:flex-col lg:flex-row md:items-center lg:justify-between lg:py-20 md:py-12  md:px-7 lg:px-24">
                 <div className="text-white flex flex-col justify-center text-center lg:items-start mb-5 md:basis-1/3">
-                    <Link href="/#features" className="block text-sm px-2 py-4 text-white hover:text-[#FF5E6B] transition duration-300">Features</Link>
-                    <Link href="/#pricing" className="block text-sm px-2 py-4 text-white hover:text-[#FF5E6B] transition duration-300">Pricing</Link>
-                    <Link href="/blog" className="block text-sm px-2 py-4 text-white hover:text-[#FF5E6B] transition duration-300">Blog</Link>
+                    <Link href="/#features" className="block text-sm px-2 py-4 text-white hover:text-pink transition duration-300">Features</Link>
+                    <Link href="/#pricing" className="block text-sm px-2 py-4 text-white hover:text-pink transition duration-300">Pricing</Link>
+                    <Link href="/blog" className="block text-sm px-2 py-4 text-white hover:text-pink transition duration-300">Blog</Link>
                 </div>
                 <div className="flex flex-col justify-center items-center order-last mt-5 md:mt-0">
                     <Link href="/" className="mt-5 mb-12 mx-auto">
@@ -23,9 +23,9 @@ export default function Footer() {
                     </h3>
                 </div>
                 <div className="text-white flex flex-col justify-center text-center lg:items-end lg:order-last mb-5 md:basis-1/3">
-                    <Link href="/#get-started" className="block text-sm px-2 py-4 text-white hover:text-[#FF5E6B] transition duration-300">Get Started</Link>
-                    <Link href="/terms-and-conditions" className="block text-sm px-2 py-4 text-white hover:text-[#FF5E6B] transition duration-300">Terms and Conditions</Link>
-                    <Link href="/privacy-policy" className="block text-sm px-2 py-4 text-white hover:text-[#FF5E6B] transition duration-300">Privacy Policy</Link>
+                    <Link href="/#get-started" className="block text-sm px-2 py-4 text-white hover:text-pink transition duration-300">Get Started</Link>
+                    <Link href="/terms-and-conditions" className="block text-sm px-2 py-4 text-white hover:text-pink transition duration-300">Terms and Conditions</Link>
+                    <Link href="/privacy-policy" className="block text-sm px-2 py-4 text-white hover:text-pink transition duration-300">Privacy Policy</Link>
                 </div>
             </div>
 
@@ -37,14 +37,14 @@ export default function Footer() {
                 </Link>
                 <div className="flex justify-between">
                     <div className="flex flex-col items-start justify-center">
-                        <Link href="/#features" className="block text-xs py-2 text-white hover:text-[#FF5E6B] transition duration-300">Features</Link>
-                        <Link href="/#pricing" className="block text-xs py-2 text-white hover:text-[#FF5E6B] transition duration-300">Pricing</Link>
-                        <Link href="/blog" className="block text-xs py-2 text-white hover:text-[#FF5E6B] transition duration-300">Blog</Link>
+                        <Link href="/#features" className="block text-xs py-2 text-white hover:text-pink transition duration-300">Features</Link>
+                        <Link href="/#pricing" className="block text-xs py-2 text-white hover:text-pink transition duration-300">Pricing</Link>
+                        <Link href="/blog" className="block text-xs py-2 text-white hover:text-pink transition duration-300">Blog</Link>
                     </div>
                     <div className="flex flex-col items-end justify-center">
-                        <Link href="/#get-started" className="block text-xs py-2 text-white hover:text-[#FF5E6B] transition duration-300">Get Started</Link>
-                        <Link href="/terms-and-conditions" className="block text-xs py-2 text-white hover:text-[#FF5E6B] transition duration-300">Terms & Conditions</Link>
-                        <Link href="/privacy-policy" className="block text-xs py-2 text-white hover:text-[#FF5E6B] transition duration-300">Privacy Policy</Link>
+                        <Link href="/#get-started" className="block text-xs py-2 text-white hover:text-pink transition duration-300">Get Started</Link>
+                        <Link href="/terms-and-conditions" className="block text-xs py-2 text-white hover:text-pink transition duration-300">Terms & Conditions</Link>
+                        <Link href="/privacy-policy" className="block text-xs py-2 text-white hover:text-pink transition duration-300">Privacy Policy</Link>
                     </div>
                 </div>
                 <h3 className="mt-10 uppercase tracking-wider text-xs font-semibold text-white text-opacity-40 flex gap-5 items-center justify-between">

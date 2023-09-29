@@ -16,6 +16,7 @@ const config: Config = {
     extend: {
       colors: {
         orange: "#FFB800",
+        pink: "#FF5E6B",
         grey: "#333333",
         charcoal: "#1E1E1E",
         light: "rgba(255, 255, 255, 0.2)"
