@@ -11,6 +11,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [ ] Refactor API calls to use new methods as they come available
 - [ ] Deal with hero optional blocks
 - [ ] Refactor data mapping in components to a middleware
+- [ ] Make more static
 
 ## Getting Started
 
