@@ -27,6 +27,13 @@ export default function BlockMatcher({block}: { block: BlockApiData }) {
             );
 
         default:
-            return null;
+            return (
+                <div className="bg-charcoal p-12 text-center text-4xl font-bold text-white">
+                    INVALID BLOCK
+                    <br />
+                    <br />
+                    <pre>{block.content_type.handle}</pre>
+                </div>
+            );
     }
 }
