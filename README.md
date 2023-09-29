@@ -12,6 +12,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [ ] Deal with hero optional blocks
 - [ ] Refactor data mapping in components to a middleware
 - [ ] Make more static
+- [ ] Close mobile nav on click
 
 ## Getting Started
 
