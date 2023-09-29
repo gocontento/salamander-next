@@ -33,7 +33,7 @@ const config: Config = {
         xxl: '3.8rem'
 
       },
-      typography: ({ theme }) => ({
+      typography: () => ({
         DEFAULT: {
           css: {
             ul: {
@@ -43,22 +43,22 @@ const config: Config = {
         },
         black: {
           css: {
-            '--tw-prose-body': theme('colors.black'),
-            '--tw-prose-headings': theme('colors.black'),
-            '--tw-prose-lead': theme('colors.black'),
-            '--tw-prose-links': theme('colors.black'),
-            '--tw-prose-bold': theme('colors.black'),
-            '--tw-prose-counters': theme('colors.black'),
-            '--tw-prose-bullets': theme('colors.black'),
-            '--tw-prose-hr': theme('colors.black'),
-            '--tw-prose-quotes': theme('colors.black'),
-            '--tw-prose-quote-borders': theme('colors.black'),
-            '--tw-prose-captions': theme('colors.black'),
-            '--tw-prose-code': theme('colors.black'),
-            '--tw-prose-pre-code': theme('colors.white'),
-            '--tw-prose-pre-bg': theme('colors.black'),
-            '--tw-prose-th-borders': theme('colors.black'),
-            '--tw-prose-td-borders': theme('colors.black'),
+            '--tw-prose-body': '#000',
+            '--tw-prose-headings': '#000',
+            '--tw-prose-lead': '#000',
+            '--tw-prose-links': '#000',
+            '--tw-prose-bold': '#000',
+            '--tw-prose-counters': '#000',
+            '--tw-prose-bullets': '#000',
+            '--tw-prose-hr': '#000',
+            '--tw-prose-quotes': '#000',
+            '--tw-prose-quote-borders': '#000',
+            '--tw-prose-captions': '#000',
+            '--tw-prose-code': '#000',
+            '--tw-prose-pre-code': '#fff',
+            '--tw-prose-pre-bg': '#000',
+            '--tw-prose-th-borders': '#000',
+            '--tw-prose-td-borders': '#000',
           },
         },
       }),
