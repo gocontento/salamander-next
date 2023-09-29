@@ -3,6 +3,7 @@ import Hero from "@/app/components/blocks/hero";
 import ImageAndText from "@/app/components/blocks/image-and-text";
 import Box from "@/app/components/blocks/box";
 import Logo from "@/app/components/blocks/logo";
+import Faqs from "@/app/components/blocks/faqs";
 
 export default function BlockMatcher({block}: { block: BlockApiData }) {
     switch (block.content_type.handle) {
@@ -24,6 +25,11 @@ export default function BlockMatcher({block}: { block: BlockApiData }) {
         case "logo_block":
             return (
                 <Logo block={block} />
+            );
+
+        case "faq":
+            return (
+                <Faqs block={block} />
             );
 
         default:
