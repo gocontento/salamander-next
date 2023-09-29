@@ -1,8 +1,7 @@
 import { draftMode } from 'next/headers';
-import { createClient } from "@/lib/contento";
 import { PreviewBridge } from "@gocontento/next";
-import {BlockApiData, ContentApiData} from "@gocontento/client/lib/api-types";
-import BlockMatcher from "@/app/components/block-matcher";
+import { createClient } from "@/lib/contento";
+import { ContentApiData } from "@gocontento/client/lib/api-types";
 
 const client = createClient();
 
