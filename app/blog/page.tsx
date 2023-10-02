@@ -3,6 +3,7 @@ import { PreviewBridge } from "@gocontento/next";
 import { createClient } from "@/lib/contento";
 import { ContentApiData } from "@gocontento/client/lib/api-types";
 import CategoryPills from "@/app/components/blog/category-pills";
+import PostGrid from "@/app/components/blog/post-grid";
 
 const client = createClient();
 
@@ -20,6 +21,16 @@ export default async function BlogPage() {
 
     const blogPageContent = response.content[0] as ContentApiData;
 
+
+    const allPostsResponse = await client.getContent({
+        params: {
+            content_type: "blog_post",
+            limit: "100"
+        }
+    });
+
+    const allPosts = allPostsResponse.content as ContentApiData[];
+
     return (
         <div className="px-9 py-7 md:px-24 md:py-20">
             <PreviewBridge draftMode={isEnabled} />
@@ -28,7 +39,7 @@ export default async function BlogPage() {
                 <p className="text-sm md:max-w-2xl md:mx-auto">{blogPageContent.fields.body.text}</p>
                 <CategoryPills />
             </header>
-            {/*<BlogGallery />*/}
+            <PostGrid posts={allPosts} />
         </div>
     )
 }
