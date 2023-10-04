@@ -1,8 +1,8 @@
-import {ContentApiData} from "@gocontento/client/lib/api-types";
+import {ContentData} from "@gocontento/client/lib/types";
 import Image from "@/app/components/image";
 import Link from "next/link";
 
-export default function AuthorCard({author}: { author: ContentApiData }) {
+export default function AuthorCard({author}: { author: ContentData }) {
     return (
         <div className="flex flex-col md:flex-row gap-7 bg-charcoal text-white pl-8 pr-8 py-9 items-center">
             <div className=" w-44 h-44">

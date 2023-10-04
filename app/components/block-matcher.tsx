@@ -1,4 +1,4 @@
-import { BlockApiData } from "@gocontento/client/lib/api-types";
+import { BlockData } from "@gocontento/client/lib/types";
 import Hero from "@/app/components/blocks/hero";
 import ImageAndText from "@/app/components/blocks/image-and-text";
 import Box from "@/app/components/blocks/box";
@@ -6,7 +6,7 @@ import Logo from "@/app/components/blocks/logo";
 import Faqs from "@/app/components/blocks/faqs";
 import RichText from "@/app/components/blocks/rich-text";
 
-export default function BlockMatcher({block}: { block: BlockApiData }) {
+export default function BlockMatcher({block}: { block: BlockData }) {
     switch (block.content_type.handle) {
         case "hero":
             return (

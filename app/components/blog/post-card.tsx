@@ -1,8 +1,8 @@
-import {ContentApiData} from "@gocontento/client/lib/api-types";
+import {ContentData} from "@gocontento/client/lib/types";
 import Link from "next/link";
 import Image from "@/app/components/image";
 
-export default function PostCard({post}: { post: ContentApiData }) {
+export default function PostCard({post}: { post: ContentData }) {
     const author = post.fields.author.content_links[0].content_link;
     const category = post.fields.category.content_links[0].content_link;
     return (

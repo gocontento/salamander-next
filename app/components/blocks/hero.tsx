@@ -1,10 +1,10 @@
-import { AssetApiData, BlockApiData } from "@gocontento/client/lib/api-types";
+import { AssetData, BlockData } from "@gocontento/client/lib/types";
 import Markdown from 'react-markdown';
 import Image from "@/app/components/image";
 
-export default function Hero({ block }: { block: BlockApiData }) {
+export default function Hero({ block }: { block: BlockData }) {
 
-    const optionalBlock = block.fields.optional_blocks.blocks.length ? block.fields.optional_blocks.blocks[0] as BlockApiData : false;
+    const optionalBlock = block.fields.optional_blocks.blocks.length ? block.fields.optional_blocks.blocks[0] as BlockData : false;
 
     return (
         <section className="px-9 pt-9 pb-12 flex flex-col lg:flex-row item-center justify-between md:gap-20 md:px-32">
@@ -23,7 +23,7 @@ export default function Hero({ block }: { block: BlockApiData }) {
                         </h4>
                         <div className="flex lg:flex-row items-center justify-between md:w-3/4 md:gap-10">
                             {/*v-for="logo in block.fields.optional_blocks.blocks[0].fields.logos.assets" :src="logo.asset.url"*/}
-                            {optionalBlock.fields.logos.assets.map((item: { asset: AssetApiData }) => {
+                            {optionalBlock.fields.logos.assets.map((item: { asset: AssetData }) => {
                                 const asset = item.asset;
                                 return (
                                     <Image key={asset.id} asset={asset} className="my-2 w-[90px] md:w-[150px]" noWebp={true} />

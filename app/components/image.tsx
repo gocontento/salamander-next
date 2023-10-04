@@ -1,6 +1,6 @@
-import {AssetApiData} from "@gocontento/client/lib/api-types";
+import {AssetData} from "@gocontento/client/lib/types";
 
-export default function Image({ asset, apiParams, className, noWebp }: { asset: AssetApiData, apiParams?: string, className?: string, noWebp?: boolean }) {
+export default function Image({ asset, apiParams, className, noWebp }: { asset: AssetData, apiParams?: string, className?: string, noWebp?: boolean }) {
     return (
         <>
             {noWebp && (

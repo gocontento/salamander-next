@@ -1,7 +1,7 @@
 import { draftMode } from 'next/headers';
 import { createClient } from "@/lib/contento";
 import { PreviewBridge } from "@gocontento/next";
-import {BlockApiData, ContentApiData} from "@gocontento/client/lib/api-types";
+import {BlockData, ContentData} from "@gocontento/client/lib/types";
 import BlockMatcher from "@/app/components/block-matcher";
 
 const client = createClient();
@@ -25,7 +25,7 @@ export default async function GeneralPage({ params }: Props) {
         }
     });
 
-    const pageContent = response.content[0] as ContentApiData;
+    const pageContent = response.content[0] as ContentData;
 
     return (
         <article className={`pb-12 md:pb-32 ${pageContent.content_type.handle === "info_page" ? 'max-w-prose mx-auto' : ''}`}>
@@ -38,7 +38,7 @@ export default async function GeneralPage({ params }: Props) {
                 </header>
             }
 
-            {pageContent.fields.content.blocks.map((block: BlockApiData) => {
+            {pageContent.fields.content.blocks.map((block: BlockData) => {
                 return (
                     <BlockMatcher key={`${block.name}-${block.sort}`} block={block}/>
                 )
