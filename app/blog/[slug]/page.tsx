@@ -39,11 +39,8 @@ export default async function BlogPostPage({ params }: Props) {
             <PreviewBridge draftMode={isEnabled} />
 
             <header className="md:text-center max-w-xl mx-auto">
-                <Link href={`/${category.uri}`} className="inline-block bg-charcoal text-[12px] px-5 py-2 mb-5 text-white rounded-full hover:bg-[#FF5E6B] hover:text-white">
-                    {category.name}
-                </Link>
-
-                <h1 className="text-xl leading-tight font-bold mb-2">{post.fields.title.text}</h1>
+                <h2 className="text-xs uppercase font-bold tracking-wider hover:text-pink transition duration-300"><Link href="/blog">The Blog</Link></h2>
+                <h1 className="text-xl leading-tight font-bold my-2">{post.fields.title.text}</h1>
                 <p>{post.fields.excerpt.text}</p>
             </header>
 
