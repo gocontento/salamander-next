@@ -8,7 +8,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [x] Refactor API calls to use new methods as they come available - array syntax
 - [x] Make sure home can be fetched by ID
 - [x] Close mobile nav on click
-- [ ] SEO
+- [x] SEO in Contento
+- [ ] Wire up the SEO
 - [ ] Make more static
 - [ ] Pagination in index pages with new limit / offset pagination
 - [ ] Deal with hero optional blocks
