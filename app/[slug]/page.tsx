@@ -21,7 +21,7 @@ export default async function GeneralPage({ params }: Props) {
         }
     });
 
-    const content = response.content[0] as ContentData;
+    const content = response.content[0];
 
     return (
         <article className={`pb-12 md:pb-32 ${content.content_type.handle === "info_page" ? 'max-w-prose mx-auto' : ''}`}>
@@ -29,7 +29,7 @@ export default async function GeneralPage({ params }: Props) {
 
             {content.content_type.handle === "info_page" &&
                 <header className="md:pt-16 md:text-center pb-7 border-b-2 border-charcoal">
-                    <h1 className="text-xl font-bold mb-5">{content.fields.heading.text}</h1>
+                    <h1 className="text-xl font-bold mb-5">{content.fields.title.text}</h1>
                     <p>{content.fields.intro_text.text}</p>
                 </header>
             }
