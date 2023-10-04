@@ -1,6 +1,6 @@
-import {BlockApiData} from "@gocontento/client/lib/api-types";
+import {BlockData} from "@gocontento/client/lib/types";
 
-function FaqItem({ block, index }: { block: BlockApiData, index: number }) {
+function FaqItem({ block, index }: { block: BlockData, index: number }) {
     return (
         <div className="w-[80%] md:w-[40%] flex flex-col self-stretch">
             <div className="flex justify-between items-center border-b-2 border-charcoal pb-2">
@@ -16,7 +16,7 @@ function FaqItem({ block, index }: { block: BlockApiData, index: number }) {
     )
 }
 
-export default function Faqs({ block }: { block: BlockApiData }) {
+export default function Faqs({ block }: { block: BlockData }) {
     return (
         <section className="px-9 py-12 lg:px-32 md:py-32">
             <div className="flex flex-col items-center justify-center bg-light py-9 md:py-16 rounded-md">
@@ -24,7 +24,7 @@ export default function Faqs({ block }: { block: BlockApiData }) {
                     {block.fields.heading.text}
                 </h2>
                 <div className="flex flex-row flex-wrap items-center justify-center gap-x-16 gap-y-5 md:gap-y-12 mt-5 mb-5">
-                    {block.fields.content.blocks.map((item: BlockApiData, index: number) => {
+                    {block.fields.content.blocks.map((item: BlockData, index: number) => {
                         return (
                             <FaqItem key={`faq-${block.content_type.handle}-${block.sort}`} block={item} index={index} />
                         )

@@ -1,7 +1,7 @@
 import { draftMode } from 'next/headers';
 import { PreviewBridge } from "@gocontento/next";
 import { createClient } from "@/lib/contento";
-import {BlockApiData, ContentApiData} from "@gocontento/client/lib/api-types";
+import {BlockData, ContentData} from "@gocontento/client/lib/types";
 import CategoryPills from "@/app/components/blog/category-pills";
 import PostGrid from "@/app/components/blog/post-grid";
 import Image from "@/app/components/image";
@@ -29,10 +29,10 @@ export default async function BlogPostPage({ params }: Props) {
         }
     });
 
-    const post = response.content[0] as ContentApiData;
+    const post = response.content[0] as ContentData;
 
-    const category = post.fields.category.content_links[0].content_link as ContentApiData;
-    const author = post.fields.author.content_links[0].content_link as ContentApiData;
+    const category = post.fields.category.content_links[0].content_link as ContentData;
+    const author = post.fields.author.content_links[0].content_link as ContentData;
 
     return (
         <article className="px-9 py-7 md:py-20">
@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: Props) {
                    className="block md:max-w-3xl md:mx-auto overflow-hidden rounded-3xl my-5 md:my-12 object-cover"
             />
 
-            {post.fields.post_body.blocks.map((block: BlockApiData) => {
+            {post.fields.post_body.blocks.map((block: BlockData) => {
                 return (
                     <BlockMatcher key={`${block.name}-${block.sort}`} block={block} />
                 )

@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@gocontento/client": "^0.0.6",
-    "@gocontento/next": "^0.0.6",
+    "@gocontento/client": "^0.0.7",
+    "@gocontento/next": "^0.0.7",
     "@tailwindcss/typography": "^0.5.10",
     "next": "latest",
     "react": "latest",

@@ -1,7 +1,7 @@
 import { draftMode } from 'next/headers';
 import { PreviewBridge } from "@gocontento/next";
 import { createClient } from "@/lib/contento";
-import { ContentApiData } from "@gocontento/client/lib/api-types";
+import { ContentData } from "@gocontento/client/lib/types";
 import CategoryPills from "@/app/components/blog/category-pills";
 import PostGrid from "@/app/components/blog/post-grid";
 
@@ -19,7 +19,7 @@ export default async function BlogPage() {
         }
     });
 
-    const blogPageContent = response.content[0] as ContentApiData;
+    const blogPageContent = response.content[0] as ContentData;
 
 
     const allPostsResponse = await client.getContent({
@@ -29,7 +29,7 @@ export default async function BlogPage() {
         }
     });
 
-    const allPosts = allPostsResponse.content as ContentApiData[];
+    const allPosts = allPostsResponse.content as ContentData[];
 
     return (
         <div className="px-9 py-7 md:px-24 md:py-20">

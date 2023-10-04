@@ -1,11 +1,11 @@
 "use client";
 
-import { BlockApiData } from "@gocontento/client/lib/api-types";
+import { BlockData } from "@gocontento/client/lib/types";
 import Image from "@/app/components/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function ImageAndText({ block }: { block: BlockApiData }) {
+export default function ImageAndText({ block }: { block: BlockData }) {
     const isBlog = usePathname().startsWith('/blog');
 
     return (

@@ -1,6 +1,6 @@
-import {BlockApiData} from "@gocontento/client/lib/api-types";
+import {BlockData} from "@gocontento/client/lib/types";
 
-export default function RichText({ block }: { block: BlockApiData }) {
+export default function RichText({ block }: { block: BlockData }) {
     return (
         <div
             className="mt-5 prose prose-black mx-auto"
