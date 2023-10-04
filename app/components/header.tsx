@@ -10,6 +10,10 @@ export default function Header() {
 		setNavOpen(!navOpen);
 	}
 
+	function closeNav() {
+		setNavOpen(false);
+	}
+
 	return (
         <header>
             <nav className="bg-orange">
@@ -55,11 +59,11 @@ export default function Header() {
 				</div>
 				{/* Mobile menu */}
 				<div className={`${navOpen ? 'flex-col' : 'hidden'} z-50 absolute w-full bg-black px-7 py-12 text-center items-center justify-center`}>
-						<Link href="/#features" className="block text-sm px-2 py-4 text-white transition duration-300">Features</Link>
-						<Link href="/#pricing" className="block text-sm px-2 py-4 text-white transition duration-300">Pricing</Link>
-						<Link href="/developers" className="block text-sm px-2 py-4 text-white transition duration-300">Developers</Link>
-						<Link href="/blog" className="block text-sm px-2 py-4 text-white transition duration-300">Blog</Link>
-						<Link href="/#get-started" className="block text-sm px-2 py-4 my-4 text-orange text-center border border-orange hover:bg-pink hover:text-white hover:border-pink px-4 py-2 rounded-full transition duration-300">Get Started</Link>
+					<Link href="/#features" className="block text-sm px-2 py-4 text-white transition duration-300" onClick={closeNav}>Features</Link>
+					<Link href="/#pricing" className="block text-sm px-2 py-4 text-white transition duration-300" onClick={closeNav}>Pricing</Link>
+					<Link href="/developers" className="block text-sm px-2 py-4 text-white transition duration-300" onClick={closeNav}>Developers</Link>
+					<Link href="/blog" className="block text-sm px-2 py-4 text-white transition duration-300" onClick={closeNav}>Blog</Link>
+					<Link href="/#get-started" className="block text-sm px-2 py-4 my-4 text-orange text-center border border-orange hover:bg-pink hover:text-white hover:border-pink px-4 py-2 rounded-full transition duration-300" onClick={closeNav}>Get Started</Link>
 				</div>
 			</nav>
         </header>

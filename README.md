@@ -6,8 +6,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [x] Blog index page
 - [x] Blog category index page
 - [x] Refactor API calls to use new methods as they come available - array syntax
-- [ ] Make sure home can be fetched by ID
-- [ ] Close mobile nav on click
+- [x] Make sure home can be fetched by ID
+- [x] Close mobile nav on click
 - [ ] SEO
 - [ ] Make more static
 - [ ] Pagination in index pages with new limit / offset pagination
