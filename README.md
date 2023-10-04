@@ -1,18 +1,18 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## TODO
-- [ ] SEO
-- [ ] Make sure home can be fetched by ID
 - [x] Info page layout
-- [ ] Blog post page
-- [ ] Blog index page
-- [ ] Blog category index page
+- [x] Blog post page
+- [x] Blog index page
+- [x] Blog category index page
+- [x] Refactor API calls to use new methods as they come available - array syntax
+- [ ] Make sure home can be fetched by ID
+- [ ] Close mobile nav on click
+- [ ] SEO
+- [ ] Make more static
 - [ ] Pagination in index pages with new limit / offset pagination
-- [ ] Refactor API calls to use new methods as they come available
 - [ ] Deal with hero optional blocks
 - [ ] Refactor data mapping in components to a middleware
-- [ ] Make more static
-- [ ] Close mobile nav on click
 
 ## Getting Started
 

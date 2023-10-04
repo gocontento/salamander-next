@@ -8,38 +8,21 @@ import PostGrid from "@/app/components/blog/post-grid";
 const client = createClient();
 
 export default async function BlogPage() {
+    const content = await client.getContentBySlug("blog", "blog_landing");
 
-    const { isEnabled } = draftMode();
+    const postsResponse = await client.getContentByType("blog_post");
 
-    const response = await client.getContent({
-        params: {
-            content_type: "blog_landing",
-            slug: "blog",
-            limit: "1"
-        }
-    });
-
-    const blogPageContent = response.content[0] as ContentData;
-
-
-    const allPostsResponse = await client.getContent({
-        params: {
-            content_type: "blog_post",
-            limit: "100"
-        }
-    });
-
-    const allPosts = allPostsResponse.content as ContentData[];
+    const posts = postsResponse.content;
 
     return (
         <div className="px-9 py-7 md:px-24 md:py-20">
-            <PreviewBridge draftMode={isEnabled} />
+            <PreviewBridge draftMode={draftMode().isEnabled} />
             <header className="border-b-2 border-charcoal md:text-center pb-5">
-                <h1 className="text-xxl font-bold mb-5">{blogPageContent.fields.header.text}</h1>
-                <p className="text-sm md:max-w-2xl md:mx-auto">{blogPageContent.fields.body.text}</p>
+                <h1 className="text-xxl font-bold mb-5">{content.fields.header.text}</h1>
+                <p className="text-sm md:max-w-2xl md:mx-auto">{content.fields.body.text}</p>
                 <CategoryPills />
             </header>
-            <PostGrid posts={allPosts} />
+            <PostGrid posts={posts} />
         </div>
     )
 }
