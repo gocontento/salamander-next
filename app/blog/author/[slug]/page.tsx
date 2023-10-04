@@ -15,19 +15,8 @@ type Props = {
 };
 
 export default async function BlogAuthorPage({ params }: Props) {
-
-    const { isEnabled } = draftMode();
-
-    const response = await client.getContent({
-        params: {
-            content_type: "authors",
-            slug: params.slug,
-            limit: "1"
-        }
-    });
-
-    const authorPageContent = response.content[0] as ContentData;
-
+    const content = await client.getContentBySlug(params.slug, "authors");
+    
     const postsResponse = await client.getContent({
         params: {
             content_type: "blog_post",
@@ -36,14 +25,14 @@ export default async function BlogAuthorPage({ params }: Props) {
         }
     });
 
-    const posts = postsResponse.content as ContentData[];
+    const posts = postsResponse.content;
 
     return (
         <div className="px-9 py-7 md:px-24 md:py-20">
-            <PreviewBridge draftMode={isEnabled} />
+            <PreviewBridge draftMode={draftMode().isEnabled} />
             <header className="border-b-2 border-charcoal md:text-center pb-5">
                 <h2 className="inline text-xs uppercase font-bold tracking-wider mt-2 hover:text-pink transition duration-300"><Link href="/blog">The Blog</Link></h2>
-                <AuthorCard author={authorPageContent} h1={true} />
+                <AuthorCard author={content} h1={true} />
             </header>
             <PostGrid posts={posts} />
         </div>

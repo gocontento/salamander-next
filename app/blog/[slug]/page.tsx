@@ -18,29 +18,17 @@ type Props = {
 };
 
 export default async function BlogPostPage({ params }: Props) {
+    const post = await client.getContentBySlug(params.slug, "blog_post");
 
-    const { isEnabled } = draftMode();
-
-    const response = await client.getContent({
-        params: {
-            content_type: "blog_post",
-            slug: params.slug,
-            limit: "1"
-        }
-    });
-
-    const post = response.content[0] as ContentData;
-
-    const category = post.fields.category.content_links[0].content_link as ContentData;
     const author = post.fields.author.content_links[0].content_link as ContentData;
 
     return (
         <article className="px-9 py-7 md:py-20">
-            <PreviewBridge draftMode={isEnabled} />
+            <PreviewBridge draftMode={draftMode().isEnabled} />
 
             <header className="md:text-center max-w-xl mx-auto">
                 <h2 className="text-xs uppercase font-bold tracking-wider hover:text-pink transition duration-300"><Link href="/blog">The Blog</Link></h2>
-                <h1 className="text-xl leading-tight font-bold my-2">{post.fields.title.text}</h1>
+                <h1 className="text-xl leading-tight font-bold my-6">{post.fields.title.text}</h1>
                 <p>{post.fields.excerpt.text}</p>
             </header>
 
