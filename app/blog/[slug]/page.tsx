@@ -1,11 +1,13 @@
 import { draftMode } from 'next/headers';
 import { PreviewBridge } from "@gocontento/next";
-import { createClient } from "@/lib/contento";
-import {BlockData, ContentData} from "@gocontento/client/lib/types";
+import { createClient, generateSeo } from "@/lib/contento";
+import { BlockData, ContentData } from "@gocontento/client/lib/types";
 import Image from "@/app/components/image";
 import Link from "next/link";
 import BlockMatcher from "@/app/components/block-matcher";
 import AuthorCard from "@/app/components/blog/author-card";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 const client = createClient();
 
@@ -15,8 +17,26 @@ type Props = {
     };
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    return await client.getContentBySlug(params.slug, "blog_post")
+        .then((content) => {
+            return generateSeo(content, {
+                type: 'article',
+                publishedTime: content.published_at ?? undefined,
+                modifiedTime: content.updated_at,
+                authors: content.fields.author.content_links[0].content_link.url,
+                section: content.fields.category.content_links[0].content_link.name,
+            });
+        }).catch(() => {
+            return {};
+        });
+}
+
 export default async function BlogPostPage({ params }: Props) {
-    const post = await client.getContentBySlug(params.slug, "blog_post");
+    const post = await client.getContentBySlug(params.slug, "blog_post")
+        .catch(() => {
+            notFound();
+        });
 
     const author = post.fields.author.content_links[0].content_link as ContentData;
 

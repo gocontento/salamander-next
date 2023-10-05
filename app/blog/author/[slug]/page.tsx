@@ -1,9 +1,11 @@
 import { draftMode } from 'next/headers';
 import { PreviewBridge } from "@gocontento/next";
-import { createClient } from "@/lib/contento";
+import { createClient, generateSeo } from "@/lib/contento";
 import Link from "next/link";
 import PostGrid from "@/app/components/blog/post-grid";
 import AuthorCard from "@/app/components/blog/author-card";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 const client = createClient();
 
@@ -13,8 +15,27 @@ type Props = {
     };
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    return await client.getContentBySlug(params.slug, "authors")
+        .then((content) => {
+
+            const nameParts = content.fields.name.text.split(' ');
+
+            return generateSeo(content, {
+                type: 'profile',
+                firstName: nameParts.length ? nameParts[0] : content.fields.name.text,
+                lastName: nameParts.length >= 2 ? nameParts[1] : null,
+            });
+        }).catch(() => {
+            return {};
+        });
+}
+
 export default async function BlogAuthorPage({ params }: Props) {
-    const content = await client.getContentBySlug(params.slug, "authors");
+    const content = await client.getContentBySlug(params.slug, "authors")
+        .catch(() => {
+            notFound();
+        });
     
     const postsResponse = await client.getContent({
         params: {

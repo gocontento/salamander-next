@@ -1,13 +1,27 @@
 import { draftMode } from 'next/headers';
 import { PreviewBridge } from "@gocontento/next";
-import { createClient } from "@/lib/contento";
+import { createClient, generateSeo } from "@/lib/contento";
 import CategoryPills from "@/app/components/blog/category-pills";
 import PostGrid from "@/app/components/blog/post-grid";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 const client = createClient();
 
+export async function generateMetadata(): Promise<Metadata> {
+    return await client.getContentBySlug("blog", "blog_landing")
+        .then((content) => {
+            return generateSeo(content);
+        }).catch(() => {
+            return {};
+        });
+}
+
 export default async function BlogPage() {
-    const content = await client.getContentBySlug("blog", "blog_landing");
+    const content = await client.getContentBySlug("blog", "blog_landing")
+        .catch(() => {
+            notFound();
+        });
 
     const postsResponse = await client.getContentByType({
         contentType: "blog_post"

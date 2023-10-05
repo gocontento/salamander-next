@@ -1,8 +1,10 @@
 import { draftMode } from 'next/headers';
-import { createClient } from "@/lib/contento";
+import { createClient, generateSeo } from "@/lib/contento";
 import { PreviewBridge } from "@gocontento/next";
-import {BlockData, ContentData} from "@gocontento/client/lib/types";
+import { BlockData } from "@gocontento/client/lib/types";
 import BlockMatcher from "@/app/components/block-matcher";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 const client = createClient();
 
@@ -12,6 +14,20 @@ type Props = {
     };
 };
 
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    return await client.getContent({
+        params: {
+            content_type: ["general_page", "info_page"],
+            slug: params.slug,
+            limit: "1"
+        }
+    }).then((response) => {
+        return generateSeo(response.content[0]);
+    }).catch(() => {
+        return {};
+    });
+}
+
 export default async function GeneralPage({ params }: Props) {
     const response = await client.getContent({
         params: {
@@ -19,6 +35,8 @@ export default async function GeneralPage({ params }: Props) {
             slug: params.slug,
             limit: "1"
         }
+    }).catch(() => {
+        notFound();
     });
 
     const content = response.content[0];
