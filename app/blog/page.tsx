@@ -1,7 +1,6 @@
 import { draftMode } from 'next/headers';
 import { PreviewBridge } from "@gocontento/next";
 import { createClient } from "@/lib/contento";
-import { ContentData } from "@gocontento/client/lib/types";
 import CategoryPills from "@/app/components/blog/category-pills";
 import PostGrid from "@/app/components/blog/post-grid";
 
@@ -10,7 +9,9 @@ const client = createClient();
 export default async function BlogPage() {
     const content = await client.getContentBySlug("blog", "blog_landing");
 
-    const postsResponse = await client.getContentByType("blog_post");
+    const postsResponse = await client.getContentByType({
+        contentType: "blog_post"
+    });
 
     const posts = postsResponse.content;
 

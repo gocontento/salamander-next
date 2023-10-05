@@ -1,7 +1,6 @@
 import { draftMode } from 'next/headers';
 import { PreviewBridge } from "@gocontento/next";
 import { createClient } from "@/lib/contento";
-import { ContentData } from "@gocontento/client/lib/types";
 import CategoryPills from "@/app/components/blog/category-pills";
 import Link from "next/link";
 import PostGrid from "@/app/components/blog/post-grid";
