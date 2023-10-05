@@ -19,9 +19,6 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-
-    const { isEnabled } = draftMode();
-
     const content = await client.getContentBySlug("home", "general_page")
         .catch(() => {
             notFound();
@@ -29,7 +26,7 @@ export default async function Home() {
 
     return (
         <div className="pb-12 md:pb-32">
-            <PreviewBridge draftMode={isEnabled} />
+            <PreviewBridge draftMode={draftMode().isEnabled} />
 
             {content.fields.content.blocks.map((block: BlockData) => {
                 return (
