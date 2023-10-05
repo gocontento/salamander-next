@@ -17,6 +17,19 @@ type Props = {
     };
 };
 
+export async function generateStaticParams() {
+    return await client.getContentByType({
+        contentType: "blog_post",
+        limit: 100,
+    }).then((response) => {
+        return response.content.map((content) => ({
+            slug: content.slug,
+        }))
+    }).catch(() => {
+        return []
+    })
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return await client.getContentBySlug(params.slug, "blog_post")
         .then((content) => {
@@ -26,17 +39,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
                 modifiedTime: content.updated_at,
                 authors: content.fields.author.content_links[0].content_link.url,
                 section: content.fields.category.content_links[0].content_link.name,
-            });
+            })
         }).catch(() => {
-            return {};
-        });
+            return {}
+        })
 }
 
 export default async function BlogPostPage({ params }: Props) {
     const post = await client.getContentBySlug(params.slug, "blog_post")
         .catch(() => {
-            notFound();
-        });
+            notFound()
+        })
 
     const author = post.fields.author.content_links[0].content_link as ContentData;
 
@@ -62,8 +75,6 @@ export default async function BlogPostPage({ params }: Props) {
             })}
 
             <AuthorCard author={author} />
-
-    {/*// <Author className="md:w-1/2 rounded-[15px] my-12" :author="data.fields.author" />*/}
         </article>
     )
 }

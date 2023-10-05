@@ -10,10 +10,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - [x] Close mobile nav on click
 - [x] SEO in Contento
 - [x] Wire up the SEO
-- [ ] Make more static
+- [x] Make more static
 - [ ] Pagination in index pages with new limit / offset pagination
 - [ ] Deal with hero optional blocks
-- [ ] Refactor data mapping in components to a middleware
+- [ ] Refactor data mapping in components to a middleware?
 
 ## Getting Started
 

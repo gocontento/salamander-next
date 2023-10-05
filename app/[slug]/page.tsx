@@ -14,6 +14,21 @@ type Props = {
     };
 };
 
+export async function generateStaticParams() {
+    return await client.getContent({
+        params: {
+            content_type: ["general_page", "info_page"],
+            limit: "100"
+        }
+    }).then((response) => {
+        return response.content.map((content) => ({
+            slug: content.slug,
+        })).filter((o) => o.slug !== 'home')
+    }).catch(() => {
+        return []
+    })
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return await client.getContent({
         params: {
