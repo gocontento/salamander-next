@@ -6,7 +6,7 @@ import BlockMatcher from "@/app/components/block-matcher";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-const client = createClient();
+const client = createClient(draftMode().isEnabled);
 
 type Props = {
     params: {
