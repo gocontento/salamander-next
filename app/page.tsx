@@ -6,7 +6,7 @@ import BlockMatcher from "@/app/components/block-matcher";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-const client = createClient();
+const client = createClient(draftMode().isEnabled);
 
 export async function generateMetadata(): Promise<Metadata> {
     return await client.getContentBySlug("home", "general_page")

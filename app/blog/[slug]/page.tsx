@@ -9,7 +9,7 @@ import AuthorCard from "@/app/components/blog/author-card";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-const client = createClient();
+const client = createClient(draftMode().isEnabled);
 
 type Props = {
     params: {
