@@ -1,6 +1,6 @@
 # Salamander
 
-The Contento demo site, built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com).
+The [Contento](https://www.contento.io) demo site, built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com).
 
 If you’ve just signed up for a Contento site and deployed the demo site there then you will need to wait until its
 finished before you can continue setting up this codebase. 
