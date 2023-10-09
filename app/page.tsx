@@ -6,7 +6,7 @@ import BlockMatcher from "@/app/components/block-matcher";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-const client = createClient(draftMode().isEnabled);
+const client = createClient();
 
 export async function generateMetadata(): Promise<Metadata> {
     return await client.getContentBySlug("home", "general_page")
@@ -19,7 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-    const content = await client.getContentBySlug("home", "general_page")
+    const content = await createClient(draftMode().isEnabled)
+        .getContentBySlug("home", "general_page")
         .catch(() => {
             notFound();
         });
