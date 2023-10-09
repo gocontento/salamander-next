@@ -6,7 +6,7 @@ import BlockMatcher from "@/app/components/block-matcher";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-const client = createClient(draftMode().isEnabled);
+const client = createClient();
 
 type Props = {
     params: {
@@ -44,15 +44,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function GeneralPage({ params }: Props) {
-    const response = await client.getContent({
-        params: {
-            content_type: ["general_page", "info_page"],
-            slug: params.slug,
-            limit: "1"
-        }
-    }).catch(() => {
-        notFound();
-    });
+    const response = await createClient(draftMode().isEnabled)
+        .getContent({
+            params: {
+                content_type: ["general_page", "info_page"],
+                slug: params.slug,
+                limit: "1"
+            }
+        }).catch(() => {
+            notFound();
+        });
 
     const content = response.content[0];
 

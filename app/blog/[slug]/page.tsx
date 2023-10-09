@@ -9,7 +9,7 @@ import AuthorCard from "@/app/components/blog/author-card";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-const client = createClient(draftMode().isEnabled);
+const client = createClient();
 
 type Props = {
     params: {
@@ -46,7 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-    const post = await client.getContentBySlug(params.slug, "blog_post")
+    const post = await createClient(draftMode().isEnabled)
+        .getContentBySlug(params.slug, "blog_post")
         .catch(() => {
             notFound()
         })

@@ -6,7 +6,7 @@ import PostGrid from "@/app/components/blog/post-grid";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-const client = createClient(draftMode().isEnabled);
+const client = createClient();
 
 export async function generateMetadata(): Promise<Metadata> {
     return await client.getContentBySlug("blog", "blog_landing")
@@ -18,7 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function BlogPage() {
-    const content = await client.getContentBySlug("blog", "blog_landing")
+    const content = await createClient(draftMode().isEnabled)
+        .getContentBySlug("blog", "blog_landing")
         .catch(() => {
             notFound();
         });
