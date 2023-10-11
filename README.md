@@ -12,16 +12,18 @@ First, set up your `.env` file, you can copy the `.env.example` file as a starti
 
 You’ll need an [API key](https://app.contento.io/account/api-keys), [Site ID](https://app.contento.io/sites) and [Preview Secret](https://app.contento.io/settings/preview).
 
+Then, in the root of the project run:
+
+```bash
+npm install
+```
+
+You can use `yarn`, `pnpm` or `bun` if you prefer.
+
 Next up, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
