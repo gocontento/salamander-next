@@ -1,10 +1,8 @@
 import { draftMode } from 'next/headers';
 import { createClient, generateSeo } from "@/lib/contento";
-import { PreviewBridge } from "@gocontento/next";
-import { BlockData } from "@gocontento/client/lib/types";
-import BlockMatcher from "@/app/components/block-matcher";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Default from "@/app/components/pages/default";
 
 const client = createClient();
 
@@ -43,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     });
 }
 
-export default async function GeneralPage({ params }: Props) {
+export default async function page({ params }: Props) {
     const response = await createClient(draftMode().isEnabled)
         .getContent({
             params: {
@@ -58,21 +56,6 @@ export default async function GeneralPage({ params }: Props) {
     const content = response.content[0];
 
     return (
-        <article className={`pb-12 md:pb-32 ${content.content_type.handle === "info_page" ? 'max-w-prose mx-auto' : ''}`}>
-            <PreviewBridge draftMode={draftMode().isEnabled} />
-
-            {content.content_type.handle === "info_page" &&
-                <header className="md:pt-16 md:text-center pb-7 border-b-2 border-charcoal">
-                    <h1 className="text-xl font-bold mb-5">{content.fields.title.text}</h1>
-                    <p>{content.fields.intro_text.text}</p>
-                </header>
-            }
-
-            {content.fields.content.blocks.map((block: BlockData) => {
-                return (
-                    <BlockMatcher key={`${block.name}-${block.sort}`} block={block}/>
-                )
-            })}
-        </article>
+        <Default initialContent={content} />
     )
 }
