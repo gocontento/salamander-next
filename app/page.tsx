@@ -1,10 +1,8 @@
 import { draftMode } from 'next/headers';
 import { createClient, generateSeo } from "@/lib/contento";
-import { PreviewBridge } from "@gocontento/next";
-import { BlockData } from "@gocontento/client/lib/types";
-import BlockMatcher from "@/app/components/block-matcher";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Home from "@/app/components/pages/home";
 
 const client = createClient();
 
@@ -18,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
         });
 }
 
-export default async function Home() {
+export default async function page() {
     const content = await createClient(draftMode().isEnabled)
         .getContentBySlug("home", "general_page")
         .catch(() => {
@@ -26,14 +24,6 @@ export default async function Home() {
         });
 
     return (
-        <div className="pb-12 md:pb-32">
-            <PreviewBridge draftMode={draftMode().isEnabled} />
-
-            {content.fields.content.blocks.map((block: BlockData) => {
-                return (
-                    <BlockMatcher key={`${block.name}-${block.sort}`} block={block} />
-                )
-            })}
-        </div>
+        <Home initialContent={content} />
     )
 }

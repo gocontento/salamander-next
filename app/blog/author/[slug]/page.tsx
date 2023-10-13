@@ -1,11 +1,8 @@
 import { draftMode } from 'next/headers';
-import { PreviewBridge } from "@gocontento/next";
 import { createClient, generateSeo } from "@/lib/contento";
-import Link from "next/link";
-import PostGrid from "@/app/components/blog/post-grid";
-import AuthorCard from "@/app/components/blog/author-card";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import BlogAuthor from "@/app/components/pages/blog-author";
 
 const client = createClient();
 
@@ -44,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         });
 }
 
-export default async function BlogAuthorPage({ params }: Props) {
+export default async function page({ params }: Props) {
     const content = await createClient(draftMode().isEnabled)
         .getContentBySlug(params.slug, "authors")
         .catch(() => {
@@ -62,13 +59,6 @@ export default async function BlogAuthorPage({ params }: Props) {
     const posts = postsResponse.content;
 
     return (
-        <div className="px-9 py-7 md:px-24 md:py-20">
-            <PreviewBridge draftMode={draftMode().isEnabled} />
-            <header className="border-b-2 border-charcoal md:text-center pb-5">
-                <h2 className="inline text-xs uppercase font-bold tracking-wider mt-2 hover:text-pink transition duration-300"><Link href="/blog">The Blog</Link></h2>
-                <AuthorCard author={content} h1={true} />
-            </header>
-            <PostGrid posts={posts} />
-        </div>
+        <BlogAuthor initialContent={content} posts={posts} />
     )
 }
