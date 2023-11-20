@@ -15,7 +15,9 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // primary
         orange: "#FFB800",
+        // secondary
         pink: "#FF5E6B",
         grey: "#333333",
         charcoal: "#1E1E1E",

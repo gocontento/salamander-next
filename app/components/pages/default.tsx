@@ -3,6 +3,7 @@
 import { BlockData, ContentData } from "@gocontento/client/lib/types";
 import BlockMatcher from "@/app/components/block-matcher";
 import { useLivePreview } from "@gocontento/next";
+import nl2br from "react-nl2br";
 
 export default function Default({ initialContent }: { initialContent: ContentData }){
     const { content } = useLivePreview({ content: initialContent});
@@ -11,7 +12,7 @@ export default function Default({ initialContent }: { initialContent: ContentDat
             {content.content_type.handle === "info_page" &&
                 <header className="md:pt-16 md:text-center pb-7 border-b-2 border-charcoal">
                     <h1 className="text-xl font-bold mb-5">{content.fields.title.text}</h1>
-                    <p>{content.fields.intro_text.text}</p>
+                    <p>{nl2br(content.fields.intro_text.text)}</p>
                 </header>
             }
 
