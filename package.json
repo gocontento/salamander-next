@@ -15,7 +15,8 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-markdown": "^9.0.0"
+    "react-markdown": "^9.0.0",
+    "react-nl2br": "^1.0.4"
   },
   "devDependencies": {
     "@types/node": "latest",
