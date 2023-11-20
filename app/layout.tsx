@@ -10,7 +10,6 @@ const inter = Inter({subsets: ['latin']})
 export const metadata = {
     title: 'Salamander',
     description: 'Demo project for Contento, built with Next.js',
-    themeColor: '#ffffff',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

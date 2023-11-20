@@ -3,6 +3,7 @@ import {ContentData} from "@gocontento/client/lib/types";
 import {OpenGraph} from "next/dist/lib/metadata/types/opengraph-types";
 import {Metadata} from "next";
 import {ContentoClient} from "@gocontento/client/lib/client";
+import {CategoryLink} from "@/types";
 
 export function createClient(isPreview: boolean = false): ContentoClient {
     return createContentoClient({
@@ -48,3 +49,19 @@ export function generateSeo(content: ContentData, openGraph?: OpenGraph, canonic
         openGraph: og,
     };
 };
+
+export async function getBlogCategoryLinks(): Promise<CategoryLink[]> {
+    return await createClient().getContentByType({
+        contentType: "blog_category",
+        sortBy: "name",
+        sortDirection: "asc",
+        limit: 3,
+    }).then((response) => {
+        return response.content.map((content) => ({
+            label: content.name,
+            href: '/' + content.uri
+        }))
+    }).catch(() => {
+        return []
+    });
+}
