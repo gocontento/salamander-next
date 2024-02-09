@@ -1,3 +1,31 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js"],
+      "parser": "@typescript-eslint/parser"
+    }
+  ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    "tailwindcss/no-custom-classname": "off",
+    "jsx-a11y/alt-text": [ 2, {
+      "elements": [ "img", "object", "area", "input[type=\"image\"]" ],
+      "img": [""],
+      "object": ["Object"],
+      "area": ["Area"],
+      "input[type=\"image\"]": ["InputImage"]
+    }]
+  }
 }
