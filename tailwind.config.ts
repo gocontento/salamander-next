@@ -8,41 +8,40 @@ const config: Config = {
   ],
   theme: {
     screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
     },
     extend: {
       colors: {
         // primary
-        orange: "#FFB800",
+        orange: '#FFB800',
         // secondary
-        pink: "#FF5E6B",
-        grey: "#333333",
-        charcoal: "#1E1E1E",
-        light: "rgba(255, 255, 255, 0.2)"
+        pink: '#FF5E6B',
+        grey: '#333333',
+        charcoal: '#1E1E1E',
+        light: 'rgba(255, 255, 255, 0.2)',
       },
 
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ['Inter', 'sans-serif'],
       },
 
       fontSize: {
-        xs: "1rem",
+        xs: '1rem',
         sm: '1.2rem',
         md: '1.8rem',
         xl: '2.2rem',
-        xxl: '3.8rem'
-
+        xxl: '3.8rem',
       },
       typography: () => ({
         DEFAULT: {
           css: {
             ul: {
-              'list-style-type': 'square'
-            }
-          }
+              'list-style-type': 'square',
+            },
+          },
         },
         black: {
           css: {
@@ -67,10 +66,6 @@ const config: Config = {
       }),
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [require('@tailwindcss/typography')],
 }
 export default config
-
-
