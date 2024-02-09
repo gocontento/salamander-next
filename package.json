@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@gocontento/client": "^0.0.10",
-    "@gocontento/next": "^0.0.11",
+    "@gocontento/next": "^0.0.12",
     "@tailwindcss/typography": "^0.5.10",
     "next": "latest",
     "react": "latest",
