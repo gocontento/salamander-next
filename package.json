@@ -1,7 +1,6 @@
 {
   "name": "salamander-next",
   "version": "1.0.13",
-  "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
