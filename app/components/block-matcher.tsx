@@ -1,6 +1,7 @@
 import { BlockData } from '@gocontento/client/lib/types'
 import Hero from '@/app/components/blocks/hero'
 import ImageAndText from '@/app/components/blocks/image-and-text'
+import ImageBlock from '@/app/components/blocks/image'
 import Box from '@/app/components/blocks/box'
 import Logo from '@/app/components/blocks/logo'
 import Faqs from '@/app/components/blocks/faqs'
@@ -13,6 +14,9 @@ export default function BlockMatcher({ block }: { block: BlockData }) {
 
     case 'image_and_text':
       return <ImageAndText block={block} />
+
+    case 'image':
+      return <ImageBlock block={block} />
 
     case 'box_block':
       return <Box block={block} />
