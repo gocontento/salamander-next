@@ -4,6 +4,7 @@ import { BlockData } from '@gocontento/client/lib/types'
 import Image from '@/app/components/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import nl2br from 'react-nl2br'
 
 export default function ImageAndText({ block }: { block: BlockData }) {
   const isBlog = usePathname().startsWith('/blog')
@@ -29,7 +30,7 @@ export default function ImageAndText({ block }: { block: BlockData }) {
           {block.fields.header.text}
         </h2>
         <p className="text-xs text-grey md:text-sm lg:w-[90%]">
-          {block.fields.body.text}
+          {nl2br(block.fields.body.text)}
         </p>
         {block.fields.button.blocks.length > 0 && (
           <Link
