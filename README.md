@@ -1,9 +1,11 @@
-# Salamander
+## Contento Marketing Website Starter Kit
 
-The [Contento](https://www.contento.io) demo site, built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com).
+A fully designed brochure site starter kit consisting of a collection of composable content blocks, landing pages and a blog. Built with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com).
 
-If you’ve just signed up for a Contento account and deployed the demo site there then you will need to wait until its
-finished before you can continue setting up this codebase.
+👉 [View Demo](https://salamander.contento.io)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;☯️ [Contento Library Site](https://app.contento.io/library/site-starters?kit=s_01hwD60576s95W06e026Pn6yxd)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🎓 [User Guide](https://www.contento.io/docs/guides/starter-kits/marketing-website)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;📄 [Contento Docs](https://www.contento.io/docs)
 
 ## Getting Started
 
