@@ -24,8 +24,8 @@ export default async function RootLayout({
   })
 
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-gradient bg-orange`}>
+    <html lang="en" className={`${inter.className}`} suppressHydrationWarning>
+      <body className="bg-gradient bg-orange">
         <PreviewBridge draftMode={draftMode().isEnabled} />
         {announcementBar && (
           <AnnouncementBar block={announcementBar.content[0]} />
